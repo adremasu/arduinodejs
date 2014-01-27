@@ -1,0 +1,50 @@
+<div class="header">
+    <ul class="nav nav-pills pull-right">
+        <li><a ng-href="#">Home</a></li>
+        <li><a ng-href="#/todo">To-do-list </a></li>
+        <li><a ng-href="#">Contact</a></li>
+    </ul>
+    <h3 class="text-muted">arduinodejs</h3>
+</div>
+
+<div class="row marketing">
+    <div class="col-md-4">
+        <div class="chart-container">
+            <h2>Temperature</h2>
+        </div>
+
+    </div>
+    <div class="col-md-4">
+        <div class="chart-container">
+            <h2>Light</h2>
+        </div>
+
+    </div>
+    <div class="col-md-4">
+        <div class="chart-container">
+            <h2>LEDs</h2>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-4">
+
+        <div data-ng-repeat="todo in todos">
+            <div class="input-group">
+                <input class="form-control" type="text" data-ng-model="todo" size="20"/>
+            <span class="input-group-btn">
+                <input type="submit" class=" btn btn-danger" data-ng-click="removeTodo($index)" value="X">
+            </span>
+            </div>
+        </div>
+        <form data-ng-submit="addTodo()" class="control form-inline">
+            <div class="input-group">
+
+                <input class="form-control" type="text" data-ng-model="todo" size="20">
+            <span class="input-group-btn">
+                <input type="submit" class=" btn btn-danger" value="Add">
+            </span>
+            </div>
+        </form>
+    </div>
+</div>
