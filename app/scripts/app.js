@@ -18,6 +18,10 @@ angular.module('arduinodejsApp', [
         templateUrl: 'views/todo.html',
         controller: 'TodoCtrl'
       })
+      .when('/arduino', {
+        templateUrl: 'views/arduino.html',
+        controller: 'TodoCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });

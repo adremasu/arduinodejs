@@ -24,7 +24,8 @@ angular.module('arduinodejsApp')
 		$scope.addTodo = function(){
 			$scope.todos.push($scope.todo);
 			$scope.todo = '';
-		};
+
+        };
 
 
 		$scope.removeTodo =  function(index){
