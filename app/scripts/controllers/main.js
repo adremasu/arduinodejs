@@ -1,28 +1,34 @@
 'use strict';
 
 angular.module('arduinodejsApp')
-  .controller('MainCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-  });
+	.controller('MainCtrl', function ($scope) {
+		$scope.awesomeThings = [
+		  'HTML5 Boilerplate',
+		  'AngularJS',
+		  'Karma'
+		];
+	});
 
 angular.module('arduinodejsApp')
-  .controller('TodoCtrl', function ($scope) {
-    $scope.todos = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-    $scope.addTodo = function(){
-        $scope.todos.push($scope.todo);
-        $scope.todo = '';
-    }
+	.controller('TodoCtrl', function ($scope, localStorageService) {
+		//$scope.todos = [];
 
-    $scope.removeTodo =  function(index){
-        $scope.todos.splice(index, 1);
+		var todosInStore = localStorageService.get('todos');
+		$scope.todos = todosInStore || [];
 
-    }
-  });
+		$scope.$watch(function(){
+			localStorageService.add('todos', $scope.todos);
+		});
+
+
+		$scope.addTodo = function(){
+			$scope.todos.push($scope.todo);
+			$scope.todo = '';
+		};
+
+
+		$scope.removeTodo =  function(index){
+			$scope.todos.splice(index, 1);
+
+		};
+	});

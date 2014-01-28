@@ -4,8 +4,10 @@ angular.module('arduinodejsApp', [
   'ngCookies',
   'ngResource',
   'ngSanitize',
-  'ngRoute'
-])
+  'ngRoute',
+  'LocalStorageModule',
+  'ui'
+  ])
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {

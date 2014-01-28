@@ -28,13 +28,17 @@
 </div>
 <div class="row">
     <div class="col-md-4">
-
-        <div data-ng-repeat="todo in todos">
-            <div class="input-group">
-                <input class="form-control" type="text" data-ng-model="todo" size="20"/>
-            <span class="input-group-btn">
-                <input type="submit" class=" btn btn-danger" data-ng-click="removeTodo($index)" value="X">
-            </span>
+        <div data-ui-sortable>
+            <div data-ng-repeat="todo in todos track by $index">
+                <div class="input-group">
+                    <input class="form-control" type="text" data-ng-model="todo" size="20"/>
+                    <span class="input-group-btn">
+                        <input type="submit" class=" btn btn-danger" data-ng-click="removeTodo($index)" value="X">
+                    </span>
+                    <span class="input-group-btn">
+                        <a href="#" class="glyphicon glyphicon-sort"></a>
+                    </span>
+                </div>
             </div>
         </div>
         <form data-ng-submit="addTodo()" class="control form-inline">
